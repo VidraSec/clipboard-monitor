@@ -31,7 +31,7 @@ func main() {
 					return
 				}
 				if event.Op&fsnotify.Write == fsnotify.Write && !programWroteToFile {
-					fmt.Println("Detected file change, updating clipboard")
+					fmt.Println("File change: file -> clipboard")
 					content, err := os.ReadFile(filePath)
 					if err != nil {
 						log.Printf("Error reading file: %s", err)
@@ -83,6 +83,7 @@ func main() {
 			if err := os.WriteFile(filePath, []byte(currentClipboardContent), 0644); err != nil {
 				log.Printf("Error writing to file: %s", err)
 			}
+			fmt.Println("Clipboard change: clipboard -> file")
 			previousClipboardContent = currentClipboardContent
 			programWroteToFile = true
 		} else if programWroteToClipboard {
