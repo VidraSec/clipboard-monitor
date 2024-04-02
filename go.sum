@@ -1,0 +1,6 @@
+github.com/atotto/clipboard v0.1.5-0.20210311235813-1438b322bde4 h1:ydsPJhbmicCWf0sRdscEmj+Xy74wH5eSx07pjYrfZQE=
+github.com/atotto/clipboard v0.1.5-0.20210311235813-1438b322bde4/go.mod h1:ZY9tmq7sm5xIbd9bOK4onWV4S6X0u6GY7Vn0Yu86PYI=
+github.com/fsnotify/fsnotify v1.7.1-0.20231207092505-c94b93b06027 h1:YGt5MFrsBG44Yev6zKfgx59U7S5LD7QWZgdvOnUlnfk=
+github.com/fsnotify/fsnotify v1.7.1-0.20231207092505-c94b93b06027/go.mod h1:40Bi/Hjc2AVfZrqy+aj+yEI+/bRxZnMJyTJwOpGvigM=
+golang.org/x/sys v0.4.0 h1:Zr2JFtRQNX3BCZ8YtxRE9hNJYC8J6I1MVbMg6owUp18=
+golang.org/x/sys v0.4.0/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
