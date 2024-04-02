@@ -74,6 +74,32 @@ func main() {
 		clipboard.WriteAll(string(initialContent))
 	}
 
+	// Start a ticker for periodic file check as a fallback
+	ticker := time.NewTicker(5 * time.Second)
+	go func() {
+		var lastModTime time.Time
+		for range ticker.C {
+			fi, err := os.Stat(filePath)
+			if err != nil {
+				log.Printf("Error stating file: %s", err)
+				continue
+			}
+			if fi.ModTime().After(lastModTime) && !programWroteToFile {
+				fmt.Println("Fallback file check: file -> clipboard")
+				content, err := os.ReadFile(filePath)
+				if err != nil {
+					log.Printf("Error reading file: %s", err)
+					continue
+				}
+				if err := clipboard.WriteAll(string(content)); err != nil {
+					log.Printf("Error writing to clipboard: %s", err)
+				}
+				lastModTime = fi.ModTime()
+				programWroteToClipboard = true
+			}
+		}
+	}()
+
 	// Monitor clipboard changes and update the file
 	previousClipboardContent, _ := clipboard.ReadAll()
 	for {
