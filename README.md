@@ -28,10 +28,14 @@ GOOS=windows GOARCH=amd64 go build
 
 1. Configure and enable samba server in Linux
 2. Mount samba share in Windows
-3. Copy both the Linux and Windows binary on the share (TODO this is not very secure, because now the VM can modify the binary run on the host)
-   1. On the Linux machine run the Linux binary
-   2. On the Windows machine run the Windows binary
+3. Run the Linux binary on Linux, the Windows binary on Windows (see command below)
 4. Clipboard sharing should now work
+
+```
+# e.g.
+clipboard-monitor.exe \\192.168.0.1\clipboard-share\
+clipboard-monitor ~/clipboard-share
+```
 
 ## Limitations
 

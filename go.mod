@@ -1,6 +1,6 @@
 module vidrasec/clipboard-monitor
 
-go 1.18
+go 1.22
 
 require (
 	github.com/atotto/clipboard v0.1.5-0.20210311235813-1438b322bde4

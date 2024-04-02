@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"path/filepath"
 	"time"
 
 	"github.com/atotto/clipboard"
@@ -16,7 +17,12 @@ func main() {
 	// helper variable to prevent writing to clipboard when the program has just written to it
 	programWroteToClipboard := false
 
-	filePath := "clipboard.txt"
+	if len(os.Args) < 2 {
+		log.Fatalf("Usage: %s <folder_path>", os.Args[0])
+	}
+	folderPath := os.Args[1]
+	filePath := filepath.Join(folderPath, "clipboard.txt")
+
 	watcher, err := fsnotify.NewWatcher()
 	if err != nil {
 		log.Fatalf("Error creating watcher: %s", err)
