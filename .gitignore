@@ -7,7 +7,6 @@
 *.dll
 *.so
 *.dylib
-clipboard-monitor
 
 # Test binary, built with `go test -c`
 *.test
@@ -20,3 +19,7 @@ clipboard-monitor
 
 # Go workspace file
 go.work
+
+# custom files
+clipboard-monitor
+clipboard.txt
