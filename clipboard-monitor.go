@@ -105,7 +105,9 @@ func main() {
 	for {
 		time.Sleep(1 * time.Second)
 		currentClipboardContent, _ := clipboard.ReadAll()
-		if currentClipboardContent != previousClipboardContent && !programWroteToClipboard {
+		// added length check, to not overwrite clipboard in windows, if a file was copied (in linux this is apparently not a problem, maybe because of different selections)
+		// TODO implement copy/pasting of files
+		if len(currentClipboardContent) != 0 && currentClipboardContent != previousClipboardContent && !programWroteToClipboard {
 			if err := os.WriteFile(filePath, []byte(currentClipboardContent), 0644); err != nil {
 				log.Printf("Error writing to file: %s", err)
 			}
