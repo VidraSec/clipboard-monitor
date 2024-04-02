@@ -21,3 +21,19 @@ Build on Linux for Windows:
 ```bash
 GOOS=windows GOARCH=amd64 go build
 ```
+
+## How to use?
+
+### Windows Host, Linux Guest
+
+1. Configure and enable samba server in Linux
+2. Mount samba share in Windows
+3. Copy both the Linux and Windows binary on the share (TODO this is not very secure, because now the VM can modify the binary run on the host)
+   1. On the Linux machine run the Linux binary
+   2. On the Windows machine run the Windows binary
+4. Clipboard sharing should now work
+
+## Limitations
+
+* This is most probably not very secure and should be improved
+* notify doesn't work from Linux to Windows (only the other way around). Thus there is a fallback to poll the file very 5 seconds
