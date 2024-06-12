@@ -41,3 +41,7 @@ clipboard-monitor ~/clipboard-share
 
 * This is most probably not very secure and should be improved
 * notify doesn't work from Linux to Windows (only the other way around). Thus there is a fallback to poll the file very 5 seconds
+
+## Misc
+
+[Built by VidraSec](https://www.vidrasec.com)
